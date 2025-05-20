@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LeadGen Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+    <h1>📊 LeadGen Analytics Dashboard</h1>
+    <p class="subtitle">Track and analyze your lead generation performance</p>
+</header>
+
+<section class="filter-bar">
+    <div class="filter-group">
+        <label for="startDate">From</label>
+        <input type="date" id="startDate">
+    </div>
+    <div class="filter-group">
+        <label for="endDate">To</label>
+        <input type="date" id="endDate">
+    </div>
+    <div class="filter-group">
+        <label for="campaignSelect">Campaign</label>
+        <select id="campaignSelect">
+            <option value="">All Campaigns</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+    <div class="filter-group">
+        <label for="minScore">Min Score</label>
+        <input type="number" id="minScore" placeholder="0" min="0" max="100">
+    </div>
+    <button class="apply-btn" onclick="applyFilters()">Apply Filters</button>
+</section>
+
+<main class="dashboard-content">
+    <div class="card">
+        <div class="card-header">
+            <h2>Lead Scores Over Time</h2>
+            <div class="card-stats">
+                <span class="stat-highlight">Avg: <span id="avgScore">0</span></span>
+                <span>Max: <span id="maxScore">0</span></span>
+            </div>
+        </div>
+        <canvas id="leadChart"></canvas>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Conversion Ratio</h2>
+            <div class="card-stats">
+                <span class="stat-highlight">Rate: <span id="conversionRate">0%</span></span>
+            </div>
+        </div>
+        <canvas id="scoreChart"></canvas>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Leads by Campaign</h2>
+            <div class="card-stats">
+                <span>Top: <span id="topCampaign">-</span></span>
+            </div>
+        </div>
+        <canvas id="campaignChart"></canvas>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Average Score by Day</h2>
+            <div class="card-stats">
+                <span>Trend: <span id="scoreTrend">-</span></span>
+            </div>
+        </div>
+        <canvas id="averageScoreChart"></canvas>
+    </div>
+</main>
+
+
+</body>
+</html>

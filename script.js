@@ -1,0 +1,9 @@
+setTimeout(()=>{
+    console.log("time0ut")
+},0)
+process.nextTick(()=>{
+    console.log("nextTick")
+})
+setImmediate(function(){
+    console.log("immediate")
+})
